@@ -10,3 +10,5 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports: evd
+URL:http://github.com/ShinsukeSakai0321/ProbPaper
+BugReports:http://github.com/ShinsukeSakai0321/ProbPaper/issues
