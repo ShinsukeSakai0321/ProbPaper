@@ -51,6 +51,7 @@ Determine lacation parameter "loc" by trial and error. Substitute loc-x for Vari
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
+library(evd)
 loc<-10
 x <- rrweibull(100,loc=loc)
 Prweibull(Variable=loc-x,Xlabel="test var",MainTitle="Reverse weibull test")
