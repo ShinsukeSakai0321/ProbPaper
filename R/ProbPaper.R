@@ -205,7 +205,7 @@ Prweibull <- function(Variable,Xlabel="Observed Value",MainTitle="Reverse Weibul
 Pexp <- function(Variable,Xlabel="Observed Value",MainTitle="Exponential Probability Paper",                            # データベクトル
                   color="gray")          # データベクトル
 {
-  fexp <- function(p) log10(1/(1-p))    #
+  fexp <- function(p) log(1/(1-p))    #
   x<-Variable
   x <- x[!is.na(x)]    # 欠損値を持つケースを除く
   n <- length(x)               # データの個数
