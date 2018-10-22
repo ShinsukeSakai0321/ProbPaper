@@ -201,3 +201,24 @@ Prweibull <- function(Variable,Xlabel="Observed Value",MainTitle="Reverse Weibul
   axis(2, at=probs, labels=y0)                    # 縦軸を描く
   points(log.x, y)                                #データ点を描く
 }
+
+Pexp <- function(Variable,Xlabel="Observed Value",MainTitle="Exponential Probability Paper",                            # データベクトル
+                  color="gray")          # データベクトル
+{
+  fexp <- function(p) log10(1/(1-p))    #
+  x<-Variable
+  x <- x[!is.na(x)]    # 欠損値を持つケースを除く
+  n <- length(x)               # データの個数
+  x <- sort(x)         # 昇順に並べ替える
+  y <- fexp(1:n/(n+1))                             # 指数分布における累積密度の位置
+  y0 <- c(10^(-10:0), 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 99.9,99.99)
+  y0 <- y0[y0 > 10/n]
+  probs <- fexp(y0/100)                                # 目盛数値の位置
+  plot(c(x[1], x[n]), c(probs[1], probs[length(probs)]), type="n", yaxt="n",
+       xlab=Xlabel, ylab="Cumulative Percent",
+       main=MainTitle)
+  abline(h=probs, col="grey")                     # 水平の格子線
+  abline(v=axTicks(1),col=color)             # 垂直の格子線axTicksは目盛の値を得る関数
+  axis(2, at=probs, labels=y0)                    # 縦軸を描く
+  points(x, y)
+}
